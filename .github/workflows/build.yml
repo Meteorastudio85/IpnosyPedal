@@ -1,0 +1,52 @@
+name: Build Ipnosy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            cmake_args: -A x64
+          - name: macOS
+            os: macos-latest
+            cmake_args: -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure
+        shell: bash
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release ${{ matrix.cmake_args }}
+
+      - name: Build
+        shell: bash
+        run: cmake --build build --config Release --parallel 4
+
+      - name: Collect VST3
+        shell: bash
+        run: |
+          mkdir -p dist
+          VST3=$(find build -type d -name "Ipnosy.vst3" -path "*Release*" | head -n 1)
+          if [ -z "$VST3" ]; then VST3=$(find build -type d -name "Ipnosy.vst3" | head -n 1); fi
+          echo "Trovato: $VST3"
+          cp -R "$VST3" dist/
+
+      - name: Ad-hoc sign (macOS)
+        if: runner.os == 'macOS'
+        run: codesign --force --deep --sign - "dist/Ipnosy.vst3"
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ipnosy-VST3-${{ matrix.name }}
+          path: dist
