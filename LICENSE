@@ -1,0 +1,35 @@
+Ipnosy
+Copyright (c) 2026 Meteora Plugins. Tutti i diritti riservati.
+All rights reserved.
+
+IT
+Il codice sorgente, la grafica (cartella Resources/gui), il logo, il nome "Ipnosy" e il
+marchio "Meteora Plugins" sono di proprieta' di Meteora Plugins.
+
+Senza autorizzazione scritta di Meteora Plugins non e' consentito copiare,
+modificare, distribuire, ripubblicare, vendere o concedere in sublicenza questo
+software o la sua grafica, in tutto o in parte. Il fatto che il codice sia
+visibile in un repository pubblico non concede alcun diritto d'uso.
+
+Il software e' fornito "cosi' com'e'", senza garanzie di alcun tipo, esplicite
+o implicite. In nessun caso Meteora Plugins e' responsabile di danni derivanti
+dall'uso del software.
+
+Alcune parti del progetto derivano da software di terzi distribuito con licenze
+proprie (Airwindows e NeuralAmpModelerCore, licenza MIT; framework JUCE). Queste parti restano soggette
+alle rispettive licenze: vedi THIRD_PARTY_NOTICES.md.
+
+EN
+The source code, artwork (Resources/gui folder), logo, the name "Ipnosy" and the
+"Meteora Plugins" brand are the property of Meteora Plugins.
+
+Without written permission from Meteora Plugins you may not copy, modify,
+distribute, republish, sell or sublicense this software or its artwork, in
+whole or in part. Public visibility of the source code does not grant any
+right of use.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL METEORA PLUGINS BE LIABLE FOR ANY DAMAGES ARISING
+FROM THE USE OF THE SOFTWARE.
+
+Third-party components keep their own licenses: see THIRD_PARTY_NOTICES.md.
